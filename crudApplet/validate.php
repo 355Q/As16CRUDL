@@ -22,7 +22,6 @@ function validateRole($role, $update = false, $id = null, $pdo = null) {
 		$query->execute();
 		$result = $query->fetch();
 
-		echo $role . " " . $result['role'];
 		if ($_SESSION['role'] != 'Admin' && $role != $result['role']) {
 			return 'Insufficent permissions';
 		}
