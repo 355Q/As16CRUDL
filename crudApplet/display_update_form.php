@@ -60,16 +60,16 @@ if ($_SESSION['role'] != 'Admin' && $id != $_SESSION['id']) {
         if ($key == 'Role') {
             if ($_GET['hasError'] != "") {
                 if ($_GET['roleError'] != "") {
-                    echo '<select id="role" name="role" class="form-control border border-danger"' . ($_SESSION["role"] == "Admin" ? "" : "disabled") . '>';
+                    echo '<select id="role" name="role" class="form-control border border-danger"' . ($_SESSION["role"] == "Admin" ? "" : "readonly") . '>';
                     echo '<option ' . ($result['role'] == 'User' ? 'selected' : '') . '>User</option>
                         <option ' . ($result['role'] == 'Admin' ? 'selected' : '') . '>Admin</option>';
                 } else {
-                    echo '<select id="role" name="role" class="form-control"' . ($_SESSION["role"] == "Admin" ? "" : "disabled") . '>';
+                    echo '<select id="role" name="role" class="form-control"' . ($_SESSION["role"] == "Admin" ? "" : "readonly") . '>';
                     echo '<option ' . ($_GET['role'] == 'User' ? 'selected' : '') . '>User</option>
                         <option ' . ($_GET['role'] == 'Admin' ? "selected" : "") . '>Admin</option>';
                 }
             } else {
-                echo '<select id="role" name="role" class="form-control"' . ($_SESSION["role"] == "Admin" ? "" : "disabled") . '>
+                echo '<select id="role" name="role" class="form-control"' . ($_SESSION["role"] == "Admin" ? "" : "readonly") . '>
                 <option ' . ($result["role"] == "User" ? "selected" : "") . '>User</option>
                 <option ' . ($result["role"] == "Admin" ? "selected" : "") . '>Admin</option>';
             }

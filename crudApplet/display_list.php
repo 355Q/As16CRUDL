@@ -23,7 +23,7 @@ include_once "header.php";
 </div>
 <?php
 if ($_SESSION['role'] == 'Admin')
-	echo "<div class='row mb-1'><a class='btn btn-primary btn-block' role='button' href='./display_create_form.php'>Create</a></div>";
+	echo "<div class='row mb-1'><a class='btn btn-primary btn-block' role='button' href='./register.php'>Create</a></div>";
 
 
 # display all records

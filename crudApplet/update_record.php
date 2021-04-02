@@ -69,7 +69,7 @@ if (in_array(true, $changedArray)) {
 		$errors['email'] = validateEmail($userInfo['email'], $pdo);
 	}
 	if (isset($changedArray['role'])) {
-		$errors['role'] = validateRole($userInfo['role']);
+		$errors['role'] = validateRole($userInfo['role'], true, $userInfo['id'], $pdo);
 	}
 
 	if (in_array(true, $errors)) {
