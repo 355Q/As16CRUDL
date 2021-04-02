@@ -41,13 +41,13 @@ if ($_SESSION['role'] != 'Admin' && $id != $_SESSION['id']) {
             if ($_GET['roleError'] != "") {
                 echo "<div class='form-row pb-1'>
                 <div class='col-2'></div><div class='col'>
-                <h5 class='text-danger'>" . $_GET['roleError'] . "</h3></div></div>";
+                <h5 class='text-danger'>" . $_GET['roleError'] . "</h5></div></div>";
             }
         } else if ($key == 'Email') {
             if ($_GET['emailError'] != "") {
                 echo "<div class='form-row pb-1'>
                 <div class='col-2'></div><div class='col'>
-                <h5 class='text-danger'>" . $_GET['emailError'] . "</h3></div></div>";
+                <h5 class='text-danger'>" . $_GET['emailError'] . "</h5></div></div>";
             }
         }
         echo
@@ -72,7 +72,6 @@ if ($_SESSION['role'] != 'Admin' && $id != $_SESSION['id']) {
                 echo '<select id="role" name="role" class="form-control"' . ($_SESSION["role"] == "Admin" ? "" : "disabled") . '>
                 <option ' . ($result["role"] == "User" ? "selected" : "") . '>User</option>
                 <option ' . ($result["role"] == "Admin" ? "selected" : "") . '>Admin</option>';
-                echo $selectString;
             }
             echo '</select>';
         } else {
@@ -81,21 +80,18 @@ if ($_SESSION['role'] != 'Admin' && $id != $_SESSION['id']) {
                     echo "<input type='tel' class='form-control' name='$value' value='$_GET[$value]'>";
                 } else if ($key == 'Email') {
                     if ($_GET['emailError'] != "") {
-                        echo "<input type='email' class='form-control border border-danger' name='$value' value='' required>";
+                        echo "<input type='text' class='form-control border border-danger' name='$value' value=''>";
                     } else {
-                        echo "<input type='email' class='form-control' name='$value' value='$_GET[$value]' required>";
+                        echo "<input type='text' class='form-control' name='$value' value='$_GET[$value]'>";
                     }
                 } else {
                     echo "<input type='text' class='form-control' name='$value' value='$_GET[$value]'>";
                 }
             } else {
-                if ($key == 'Phone') {
+                if ($key == 'Phone')
                     echo "<input type='tel' class='form-control' name='$value' value='$result[$value]'>";
-                } else if ($key == 'Email') {
-                    echo "<input type='email' class='form-control' name='$value' value='$result[$value]' required>";
-                } else {
+                else
                     echo "<input type='text' class='form-control' name='$value' value='$result[$value]'>";
-                }
             }
         }
         echo
